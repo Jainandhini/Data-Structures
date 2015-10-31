@@ -1,0 +1,15 @@
+package com.singly.base;
+
+public class List {
+	int count;
+	Node head;
+	
+	List(){
+		count=0;
+		head=new Node();
+	}
+	
+	//Insert Node
+	//Delete Node
+	//Traverse Nodes
+}

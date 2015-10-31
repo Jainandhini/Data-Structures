@@ -1,0 +1,36 @@
+package com.Stack.Impl;
+import com.singly.base.*;
+
+public class Stack {
+
+}
+class StackOperations{
+	//Insert Node
+	List l;
+	int SIZE;
+	StackOperations(){
+		l=new List();
+		l.setHead(null);
+		l.setCount(0);
+		SIZE=10;
+	}
+	int push(List l,Node n){
+		if(l.getCount()<SIZE){
+			l.incCount(1);
+			n.setLink(l.getHead();
+			l.setHead(n);
+			return 1;
+		}
+		return -1;
+	}
+	//Delete Node
+	int pop(List l){
+		if(l.getCount()>0){
+			l.decCount(1);
+			l.setHead(l.getHead().getLink());
+			return 1;
+		}
+		return -1;
+	}
+	//Traverse Nodes
+}

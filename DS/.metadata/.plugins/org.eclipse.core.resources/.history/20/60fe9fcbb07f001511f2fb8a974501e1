@@ -1,0 +1,10 @@
+package com.Stack.Impl;
+import com.singly.base.*;
+public class Stack {
+
+}
+class StackOperations{
+	//Insert Node
+	//Delete Node
+	//Traverse Nodes
+}

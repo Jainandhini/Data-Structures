@@ -1,0 +1,91 @@
+package com.Stack.Impl;
+import java.io.*;
+
+import com.singly.base.*;
+
+public class Stack {
+	 
+	public static void main(String args[]) throws NumberFormatException, IOException{
+		StackOperations stack=new StackOperations();
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter Size of List: ");
+		stack.setSIZE(Integer.parseInt(br.readLine()));
+		while(true){
+			System.out.println("1. Push\n2.Pop\n3.Peek\nEnter Choice: ");
+			int ch=(Integer.parseInt(br.readLine()));
+			switch(ch){
+			case 1:
+				System.out.println("Enter value to insert: ");
+				String data=br.readLine();
+				int result=stack.push(data);
+				break;
+			case 2:
+				System.out.println("Enter value to delete: ");
+				int result1=stack.pop();
+				break;
+			case 3:
+				stack.peek();
+				
+			}
+		}
+	}
+}
+class StackOperations{
+	//Insert Node
+	List l;
+	int SIZE;
+	StackOperations(){
+		l=new List();
+		l.setHead(null);
+		l.setCount(0);
+		SIZE=10;
+	}
+	public int getSIZE() {
+		return SIZE;
+	}
+	public void setSIZE(int sIZE) {
+		SIZE = sIZE;
+	}
+	int push(List l,Node n){
+		if(l.getCount()<SIZE){
+			l.incCount(1);
+			n.setLink(l.getHead());
+			l.setHead(n);
+			System.out.println("Element pushed: "+l.getHead());
+			return 1;
+		}
+		System.out.println("List Full");
+		return -1;
+	}
+	//Delete Node
+	int pop(List l){
+		if(l.getCount()>0){
+			l.decCount(1);
+			System.out.println("Element popped: "+l.getHead());
+			l.setHead(l.getHead().getLink());
+			return 1;
+		}
+		System.out.println("List Empty");
+		return -1;
+	}
+	//Traverse Nodes
+	void peek(List l){
+		System.out.println("Count: "+l.getCount());
+		Node n=l.getHead();
+		for(int i=0;i<l.getCount();i++){
+			System.out.println(n.getData());
+			n=n.getLink();
+		}
+	}
+	int push(String data){
+		Node n=new Node();
+		n.setData(data);
+		return push(l,n);
+	}
+	int pop(){
+		return pop(l);
+	}
+	void peek(){
+		peek(l);
+	}
+}

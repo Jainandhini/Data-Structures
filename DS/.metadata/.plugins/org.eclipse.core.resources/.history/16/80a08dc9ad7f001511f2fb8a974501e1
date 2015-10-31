@@ -1,0 +1,11 @@
+package com.singly.base;
+
+public class Node {
+	String data;
+	Node link;
+	
+Node(){
+	data="";
+	link=new Node();
+}
+}
